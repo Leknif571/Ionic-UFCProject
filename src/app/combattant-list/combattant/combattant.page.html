@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab/combattants"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="combattant">{{combattant.Lname}} {{combattant.Fname}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <ion-button (click)="setModif()">Rendre Modifiable</ion-button>
+  <div *ngIf="!modif">
+    <ion-grid *ngIf="combattant">
+      <ion-row>
+
+        <ion-col *ngIf="combattant.defeat">
+          <ion-row>
+             <div class="cercle-vert">
+            <ion-icon name="checkmark"></ion-icon>
+          </div> 
+          <p>Invaincu</p>
+        </ion-row>
+         
+          
+        </ion-col>
+
+        <ion-col *ngIf="!combattant.defeat">
+          <ion-row>
+          <div class="cercle-rouge">
+            <ion-icon  name="close-circle"></ion-icon>
+          </div>
+          <p>Vaincu</p>
+          </ion-row>
+       
+        </ion-col>
+
+        <ion-col>
+          <ion-button (click)="onDelete(combattant.id)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+     
+        
+          <img class="radiusImg" [src]="combattant.combattantPics">
+        
+          
+          <ion-row>
+            <br>
+            <ion-col><strong> {{combattant.Lname}} {{combattant.Fname}}</strong> </ion-col>
+          </ion-row>
+          
+        <ion-row>
+          <ion-col>
+            <strong>Age:</strong> 
+          {{combattant.age}} ans
+        </ion-col>
+        <ion-col>
+          <strong>Pays: </strong>
+          {{combattant.country}}
+        </ion-col>
+        </ion-row>
+        <br>
+        <ion-row>
+          <ion-col>
+            <strong>Taille: </strong>
+          {{combattant.height}} cm
+        </ion-col>
+        <ion-col>
+          <strong>Poids: </strong>
+          {{combattant.weight}} KG
+        </ion-col>
+        </ion-row>
+          <br>
+        <ion-row>
+          <ion-col>
+          <strong>Porté: </strong> 
+          {{combattant.reach}} cm
+          </ion-col>
+          <ion-col>
+         <strong>Predilection: </strong> 
+        {{combattant.predilection}}
+          </ion-col>
+        </ion-row>
+          <br>
+          
+          
+          
+        
+        
+          
+        
+      
+      <ion-row>
+
+        <ion-col>
+          {{combattant.nbVictory}} victoire dont 
+          <strong>{{combattant.nbKo}}</strong> KO
+          <br>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <strong>Description:</strong> <br>
+          <p>
+            {{combattant.description}}
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="modif && combattant" class="ion-text-center">
+    <ion-item>
+      <ion-label>Affiche</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.combattantPics"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.Lname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prenom</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.Fname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pays</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.country"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Taille (en cm)</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.height"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Poids(en Kg)</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.weight"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Porté (en cm)</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.reach"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Age</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.age"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre de KO</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.nbKo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Victoire (Hors KO)</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.nbVictory"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> Invaincu ?</ion-label>
+      <ion-toggle [(ngModel)]="combattant.defeat"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Predilection</ion-label>
+      <ion-input type="text" [(ngModel)]="combattant.predilection"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea rows="5" [(ngModel)]="combattant.description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="onModif()">Modifier</ion-button>
+    </ion-item>
+  </div>

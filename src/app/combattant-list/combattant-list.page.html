@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Listes des combattants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <h2>Nouveau combattants ?</h2>
+
+  <ion-button routerLink='/tab/combattants/nouveau'>Ajouter</ion-button>
+
+  <h2>Liste des combattants</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let combattant of combattants">
+          <ion-card [routerLink]="['/tab/combattants',combattant.id]">
+            <img class="radiusImgAcc" [src]="combattant.combattantPics" [alt]="combattant.Fname">
+            <p>{{combattant.Fname}} {{combattant.Lname}}</p>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

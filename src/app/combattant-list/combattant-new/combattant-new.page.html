@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab/combattants"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nouveau combattant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label></ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.combattantPics"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.Fname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Prénom</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.Lname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pays</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.country"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Taille</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.height"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Poids</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.weight"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Porté</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.reach"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Age</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.age"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nombre de KO</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.nbKo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nombre de victoire(Hors KO)</ion-label>
+    <ion-input type="text" [(ngModel)]="combattant.nbKo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Invaincu ?</ion-label>
+    <ion-toggle [(ngModel)]="combattant.defeat"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Predilection</ion-label>
+    <ion-textarea rows="20" [(ngModel)]="combattant.predilection"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-textarea rows="20" [(ngModel)]="combattant.description"></ion-textarea>
+  </ion-item>
+
+  <p class="text-center">
+    <ion-button (click)="add()">Envoyer</ion-button>
+  </p>
+</ion-content>
