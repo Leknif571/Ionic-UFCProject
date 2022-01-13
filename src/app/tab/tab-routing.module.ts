@@ -24,6 +24,10 @@ const routes: Routes = [
         path: 'photos',
         loadChildren:()=> import('../photos/photos.module').then( m => m.PhotosPageModule)
       },
+      {
+        path: 'audio',
+        loadChildren: () => import('../audio/audio.module').then( m => m.AudioPageModule)
+      },
     ]
   },
   {

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>audio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="full" (click)="enregistrementAudio()">Enregister</ion-button>
+  <ion-button *ngIf="audio" expand="full" (click)="play()">Jouer</ion-button>
+
+
+  <ion-row *ngFor= "let key of keys">
+    <ion-col>
+      {{key}}:
+    </ion-col>
+
+    <ion-col>
+        {{audio[key]}}
+    </ion-col>
+    
+
+  </ion-row>
+</ion-content>
